@@ -1,34 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 *{
-  margin: 0;
-  padding: 0%;
+  @apply text-dark
 }
-#root{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  position: relative;
+.nav{
+    @apply lg:text-white list-none flex flex-col absolute right-8 top-14 p-4 gap-4 bg-white rounded-md drop-shadow-md lg:flex-row lg:static lg:right-0 lg:top-0 lg:p-0 lg:bg-transparent lg:rounded-none lg:drop-shadow-none
+  }
+.btn {
+  @apply px-4 py-1 rounded-md
 }
-.main{
-  flex-grow: 1;
+.primarly {
+  @apply bg-primarly text-white
 }
-.header{
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: green;
-
-}
-.header .logo {
-  width: 32px;
-}
-
-.footer{
-  height: 10em;
-  background-color: seagreen;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.seconary {
+  @apply border border-primarly text-primarly
 }
