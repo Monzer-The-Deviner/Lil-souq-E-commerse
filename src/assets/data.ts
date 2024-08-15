@@ -10,7 +10,7 @@ import womanPic1 from './www.swishschool (41).png'
 export const productsData = (productsNumber:number): productObj[]=>{
     const data : productObj[]= []
     const names = ['nice outfit','k-pop outfit','modren shirt','hoodie']
-    const categs = ['laidies outfits','men cloths','modren acceseries','home stuff']
+    const categs = ['laioutfits','Men cloths','modren acceseries','home stuff']
     const pictures = [ manpic1, manpic2, manpic3, manpic4, manpic5, womanPic1]
     for (let index = 0; index < productsNumber; index++) {
         const price :number= Math.ceil(Math.random()*200)+0.99;
@@ -20,7 +20,7 @@ export const productsData = (productsNumber:number): productObj[]=>{
         const stars :number= Math.ceil(Math.random()*5);
         const name :string = names[Math.ceil(Math.random()* names.length-1)]
         const categ :string = categs[Math.ceil(Math.random()* categs.length-1)]
-        const imgURL :string = pictures[Math.ceil(Math.random()* pictures.length-1)]
+        const imgURL :string[] = [pictures[Math.ceil(Math.random()* pictures.length-1)]]
         const desc = ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias magni minima, deleniti nam at possimus culpa est magnam, ea dignissimos, quibusdam praesentium nesciunt. Amet enim nulla magni, commodi quos numquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias magni minima, deleniti nam at possimus culpa est magnam, ea dignissimos, quibusdam praesentium nesciunt. Amet enim nulla magni, commodi quos numquam.'
 
         const productobj: productObj = {

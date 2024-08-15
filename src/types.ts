@@ -3,7 +3,7 @@ export type productObj = {
     title:string,
     id:string,
     desc:string,
-    imgURL:string,
+    imgURL:string[],
     price:number,
     categ:string,
     sold:number

@@ -8,7 +8,7 @@ const ProdList = ({list,title}:{list:productObj[],title:string|null}) => {
                 {list.map((item,index)=>
                     <div key={index} className="bg-white shadow-md mb-2 p-1 rounded-md overflow-hidden flex flex-col shrink-0 h-52 w-60">
                         <div className="flex items-start h-40 rounded-md  overflow-hidden " >
-                            <img src={item.imgURL} alt="" />
+                            <img src={item.imgURL[0]} alt="" />
                         </div>
                         <div className="flex justify-between">
                         <span className="font-semibold">{item.title}</span>
