@@ -1,11 +1,11 @@
-import { hanleMostSold, productsData } from "../assets/data";
 import { Hero ,PopularList,Collections, CTA, AuthForm} from "../components";
 import qualityPic from '../assets/Quality.jpg'
 import bagimage from '../assets/3d-shopping-icon-illustration-free-png (2).png'
 import bagimage1 from '../assets/3d-shopping-icon-illustration-free-png (1).png'
 import illustration from '../assets/3d-illustration-of-online-shop-app-on-mobile-png.png'
+
 const LandingPage = () => {
-    const popularProducts = hanleMostSold(productsData(10),5)||[]
+    
     const description = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium error, quo laboriosam laudantium enim odio deleniti sunt, ut tenetur dolores ea, maiores cum omnis consequatur? Voluptatum sint ut facere aut.'
     return ( 
         <>
@@ -19,7 +19,7 @@ const LandingPage = () => {
              url = '#' 
              image ={bagimage} 
              desc = {description} />
-            <PopularList list = {popularProducts} /> 
+            <PopularList /> 
 
 
                 <div className="flex  flex-col sm:flex-row gap-8 md:h-80 my-16">

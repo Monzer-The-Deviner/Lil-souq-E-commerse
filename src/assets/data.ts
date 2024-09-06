@@ -55,6 +55,8 @@ export const collectionsData :colletionObj[] = [
         id:'women-outfits'
     },
 ] 
+
+
 export const hanleMostSold = (list: productObj[],number:number|undefined=undefined) => {
     //get the sells and save it in a var
     const sellsList: number[] = list.map(item=>item.sold)
@@ -72,12 +74,3 @@ export const hanleMostSold = (list: productObj[],number:number|undefined=undefin
     }
     return mostsold
 }
-// export const hanleMostSold = (list:productObj[],number:number)=>{
-//     let soldList = list.map(product=>product.sold)
-//     const newlist:number[] = []
-//     for (let index = 0; index < number; index++) {
-//         const element = max(soldList)
-//         newlist.push(element)
-//         soldList = soldList.filter(el=>el!=element)
-//     }
-// }

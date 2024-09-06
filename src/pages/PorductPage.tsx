@@ -1,23 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cuantity from "../components/Cuantity";
-import { productObj } from "../types";
 import { ProdList } from "../components";
 import { productsData } from "../assets/data";
 import { FaStar } from "react-icons/fa";
-const ProductPage = ({selectedProd}:{selectedProd:productObj}) => {
-    const {title,collection,desc:disc,price,imgURL: imgList,sold,stars,stock} = selectedProd
+import { getProduct } from "../sanityClient";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/index";
+
+const ProductPage = () => {
+    const [selectedProd, setselectedProd] = useState();
+    const productId = useSelector((state:RootState)=>state.product.productId)
+    const {title,collection,desc:disc,images,sold,stars,stock,price} = selectedProd
     const [imageIndex, setImageIndex] = useState(0);
     const simularprods = productsData(29).filter(p=>p.collection == collection)
+    useEffect(()=>{
+        getProduct(productId).then(data=>setselectedProd(data))
+    },[])
     return ( 
         <>
         <div className=" flex flex-col mt-10 gap-6 md:flex-row w-full ">
             <div className="flex flex-1 flex-col gap-4">
                 <div className="bg-gray-400 rounded-md max-h-72 overflow-hidden flex-1 ">
-                    <img src={imgList[imageIndex]} alt="" className="min-h-full min-w-full w-full" />
+                    <img src={images[imageIndex]} alt="" className="min-h-full min-w-full w-full" />
                 </div>
 
                 <div className="overflow-x-scroll py-2 flex rounded-md gap-2">
-                    {imgList.map((image,index)=> <div onClick={()=> setImageIndex(index)} className="w-32 duration-150 hover:scale-105 aspect-square bg-cover bg-center rounded-md" style={{backgroundImage:`url(${image})`}} key={index}></div>)}
+                    {images.map((image,index)=> <div onClick={()=> setImageIndex(index)} className="w-32 duration-150 hover:scale-105 aspect-square bg-cover bg-center rounded-md" style={{backgroundImage:`url(${image})`}} key={index}></div>)}
                 </div>
             </div>
             <div className="flex-1 flex flex-col gap-4 p-4 ">

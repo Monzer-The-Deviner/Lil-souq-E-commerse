@@ -1,13 +1,20 @@
 import { CollictionList, ProdList } from "../components/RowList";
-import {collectionsData, productsData as getProdData,hanleMostSold} from '../assets/data.ts'
-import Product from "../components/Product.tsx";
-import productpic from '../assets/4fa25fa19937bca6f8fb422580778ea9.jpg'
+// import Product from "../components/Product.tsx";
+// import productpic from '../assets/4fa25fa19937bca6f8fb422580778ea9.jpg'
 import banner from '../assets/Artboard 3.png'
-const productsData = getProdData(12)
-
+import { getCollections, getProdsFromCollection, getTopSoldProducts } from "../sanityClient.ts";
+import { useEffect, useState } from "react";
 const HomePage = () => {
-    console.log(hanleMostSold(productsData,4))
-    console.log(productsData,4)
+    
+    const [bestSelling, setBestSelling] = useState([])
+    const [menProducts, setMenProducts] = useState([])
+    const [collections, setCollections] = useState([])
+    useEffect(()=>{
+        
+        getCollections().then(data=>setCollections(data))
+        getProdsFromCollection('menFasion').then(data=>setMenProducts(data))
+        getTopSoldProducts().then(data=>setBestSelling(data))
+    },[])
     return ( 
         <>
             <div 
@@ -16,16 +23,16 @@ const HomePage = () => {
                 {/* <img src={banner} className="min-h-full min-w-full shrink-0" alt="" /> */}
             </div>
             <div>
-                <CollictionList list={collectionsData}/>
+                <CollictionList list={collections}/>
             </div>
             
             <div className="">
-                <ProdList title="Men list" list={productsData}/>
+                <ProdList title="Men list" list={menProducts}/>
             </div>
             <div>
-                <ProdList title="Hot" list={hanleMostSold(productsData,4)}/>
+                <ProdList title="Hot" list={bestSelling}/>
             </div>
-                <Product title={'men outfit'} price={12} disc={productsData[0].desc} url={productpic} />
+                
         </>
      );
 }

@@ -1,54 +1,18 @@
-import {defineConfig, isDev} from 'sanity'
-
+import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
-import {schemaTypes} from './schemaTypes'
-import {structure} from './structure'
-
 import {visionTool} from '@sanity/vision'
-import {colorInput} from '@sanity/color-input'
-import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array'
-import {media, mediaAssetSource} from 'sanity-plugin-media'
-import {customDocumentActions} from './plugins/customDocumentActions'
-import Navbar from './components/studio/Navbar'
-
-const devOnlyPlugins = [visionTool()]
+import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'payga-E-commerce',
+  title: 'my-E-commerce',
 
-  projectId: '0ykeqswf',
+  projectId: 'vexuw6zb',
   dataset: 'production',
 
-  plugins: [
-    structureTool({structure}),
-    colorInput(),
-    imageHotspotArrayPlugin(),
-    customDocumentActions(),
-    media(),
-    ...(isDev ? devOnlyPlugins : []),
-  ],
+  plugins: [structureTool(), visionTool()],
 
   schema: {
     types: schemaTypes,
-  },
-
-  form: {
-    file: {
-      assetSources: (previousAssetSources) => {
-        return previousAssetSources.filter((assetSource) => assetSource !== mediaAssetSource)
-      },
-    },
-    image: {
-      assetSources: (previousAssetSources) => {
-        return previousAssetSources.filter((assetSource) => assetSource === mediaAssetSource)
-      },
-    },
-  },
-
-  studio: {
-    components: {
-      navbar: Navbar,
-    },
   },
 })

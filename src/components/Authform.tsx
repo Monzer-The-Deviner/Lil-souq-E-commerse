@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 const AuthForm = () => {
     const [member, setMember] = useState(false);
     const hasAnAccount = !member? 'already have an account':'create new account'
@@ -26,10 +27,9 @@ const AuthForm = () => {
                 <div className='flex flex-col gap-4'>
                     or sign in using:
                     <div className='flex justify-between gap-2'>
-                        <span>icon</span>
-                        <span>icon</span>
-                        <span>icon</span>
-                        <span>icon</span>
+                        <FaGoogle />
+                        <FaGithub />
+                        <FaFacebook />
                     </div>
                 </div>
             </form>
