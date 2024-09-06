@@ -1,12 +1,14 @@
-import { productObj,categObj } from "../types";
+import { Link } from "react-router-dom";
+import { productObj,colletionObj } from "../types";
 
-const ProdList = ({list,title}:{list:productObj[],title:string|null}) => {
+const ProdList = ({list,title}:{list:productObj[],title?:string}) => {
     return ( 
         <>
             <h3 className="text-lg font-semibold">{title}</h3>
             <div className="flex gap-4 overflow-x-hidden hover:overflow-x-scroll duration-100">
                 {list.map((item,index)=>
-                    <div key={index} className="bg-white shadow-md mb-2 p-1 rounded-md overflow-hidden flex flex-col shrink-0 h-52 w-60">
+                <Link to='/product' key={index}>
+                    <div className="bg-white shadow-md mb-2 p-1 rounded-md overflow-hidden flex flex-col shrink-0 h-52 w-60">
                         <div className="flex items-start h-40 rounded-md  overflow-hidden " >
                             <img src={item.imgURL[0]} alt="" />
                         </div>
@@ -16,13 +18,14 @@ const ProdList = ({list,title}:{list:productObj[],title:string|null}) => {
                         </div>
                         <span className="text-sm text-teal-950">{item.desc.substring(0,30)}...</span>
                     </div>
+                </Link>
                 )}
             </div>
         </>
         
      );
 }
-const CategList = ({list}:{list:categObj[]}) => {
+const CollictionList = ({list}:{list:colletionObj[]}) => {
     return ( 
         <>
             <div className="flex gap-4 overflow-x-hidden hover:overflow-x-scroll">
@@ -40,4 +43,4 @@ const CategList = ({list}:{list:categObj[]}) => {
         </>
      );
 }
-export {ProdList,CategList};
+export {ProdList,CollictionList};

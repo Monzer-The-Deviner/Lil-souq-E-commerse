@@ -1,30 +1,28 @@
 import { hanleMostSold, productsData } from "../assets/data";
-import { Hero } from "../components";
+import { Hero ,PopularList,Collections, CTA, AuthForm} from "../components";
 import qualityPic from '../assets/Quality.jpg'
+import bagimage from '../assets/3d-shopping-icon-illustration-free-png (2).png'
+import bagimage1 from '../assets/3d-shopping-icon-illustration-free-png (1).png'
+import illustration from '../assets/3d-illustration-of-online-shop-app-on-mobile-png.png'
 const LandingPage = () => {
-    const popularProduct = hanleMostSold(productsData(10),5)
+    const popularProducts = hanleMostSold(productsData(10),5)||[]
+    const description = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium error, quo laboriosam laudantium enim odio deleniti sunt, ut tenetur dolores ea, maiores cum omnis consequatur? Voluptatum sint ut facere aut.'
     return ( 
         <>
             <Hero />
-            <div>
-                <h2 className="text-2xl font-sans font-bold my-12 ">Our <span className="text-primarly">Popular</span> products</h2>
-                <div className="flex mt-8 justify-center flex-wrap sm:flex-row gap-2 md:gap-8">
-                    {popularProduct.map(product=>
-                        <div className="bg-white shadow-md rounded-md w-40 md:w-60 p-1 gap-8 flex flex-col">
-                            <div className=" rounded-md h-40 bg-cover" style={{backgroundImage:`url(${product?.imgURL})`}}>
-                            </div>
-                            <div className="flex p-4 justify-between flex-col md:flex-row">
-                                <span>{product?.title}</span>
-                                <div>
-                                    <span className="font-bold">${product?.price}</span>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
+            <br />
+            <Collections />
+            <br />
+            <CTA
+             bg = 'bg-primarly'
+             title="find every thing u need"
+             url = '#' 
+             image ={bagimage} 
+             desc = {description} />
+            <PopularList list = {popularProducts} /> 
 
-                <div className="flex flex-col sm:flex-row gap-8 md:h-80 my-16">
+
+                <div className="flex  flex-col sm:flex-row gap-8 md:h-80 my-16">
                     <div className="flex-1 ">
                         <h2 className="text-4xl font-sans my-8 font-bold">Made with the highest <span className="text-primarly">Quality</span></h2>
                         <h3 className="text-2xl">the best <span className="text-primarly">materials</span> mixed with ther best hand of <span className="text-primarly">experties</span> from all around the world</h3>
@@ -33,6 +31,20 @@ const LandingPage = () => {
 
                     </div>
                 </div>
+            
+            <CTA
+             bg = 'bg-red-400'
+             title="find every thing u need"
+             url = '#' 
+             image ={bagimage1} 
+             desc = {description} />
+
+            <div className="flex translate-y-4  mt-8">
+              <div className="flex-1"><img src={illustration} alt="" /></div>
+              <div className="rounded-md shadow-lg overflow-hidden">
+                <AuthForm />
+              </div>
+            </div>
         </>
      );
 }

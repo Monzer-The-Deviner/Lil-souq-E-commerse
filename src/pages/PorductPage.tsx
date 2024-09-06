@@ -1,33 +1,51 @@
+import { useState } from "react";
+import Cuantity from "../components/Cuantity";
 import { productObj } from "../types";
-
+import { ProdList } from "../components";
+import { productsData } from "../assets/data";
+import { FaStar } from "react-icons/fa";
 const ProductPage = ({selectedProd}:{selectedProd:productObj}) => {
-    const {title,categ,desc:disc,price,imgURL,sold,stars,stock} = selectedProd
+    const {title,collection,desc:disc,price,imgURL: imgList,sold,stars,stock} = selectedProd
+    const [imageIndex, setImageIndex] = useState(0);
+    const simularprods = productsData(29).filter(p=>p.collection == collection)
     return ( 
         <>
-            <div className="bg-white rounded-md flex flex-col md:flex-row overflow-hidden w-full h-fit md:h-64">
-            <div className="bg-gray-400 max-h-64 overflow-hidden flex-1 ">
-                <img src={imgURL} alt="" className="min-h-full min-w-full w-full" />
-            </div>
-            <div className="flex-1 flex flex-col gap-8 p-4 ">
+        <div className=" flex flex-col mt-10 gap-6 md:flex-row w-full ">
+            <div className="flex flex-1 flex-col gap-4">
+                <div className="bg-gray-400 rounded-md max-h-72 overflow-hidden flex-1 ">
+                    <img src={imgList[imageIndex]} alt="" className="min-h-full min-w-full w-full" />
+                </div>
 
-                <div>
-                <div className="flex justify-between w">
-                    <div className="flex gap-4 text-xl font-semibold">
+                <div className="overflow-x-scroll py-2 flex rounded-md gap-2">
+                    {imgList.map((image,index)=> <div onClick={()=> setImageIndex(index)} className="w-32 duration-150 hover:scale-105 aspect-square bg-cover bg-center rounded-md" style={{backgroundImage:`url(${image})`}} key={index}></div>)}
+                </div>
+            </div>
+            <div className="flex-1 flex flex-col gap-4 p-4 ">
+
+
+                <div className="flex justify-between text-xl font-semibold">
+               
                     <span>{title}</span>
-                    <span className="text-primarly">$ {price}</span>
-                    </div>
-                    <div className="flex flex-col md:flex-row gap-x-4 gap-y-1">
-                    <button className="btn primarly">Buy</button>
-                    <button className="btn seconary">Add to card</button>
+                  
+                    <div className="flex gap-4">
+                        <span className="text-base flex gap-1 items-center font-thin"><FaStar /> {stars}</span>
+                        <span className="text-primarly">$ {price}</span>
                     </div>
                 </div>
                     <h3 className="text-lg text-primarly font-semibold">Discription</h3>
                     <p className="text-sm">{disc}</p>
-                </div>
-            </div>
-            
+                    <div className="flex gap-3">
+                    <Cuantity />
+                    <button className="btn primarly">Add to card</button>
+                    </div>
+                </div>            
         </div>
         
+        <div className="mt-10 flex flex-col mb-20 gap-8">
+            <h3 className="text-2xl font-semibold">Simular products</h3>
+            <ProdList list={simularprods} />
+        </div>
+
         </>
      );
 }

@@ -1,5 +1,5 @@
-import { CategList, ProdList } from "../components/RowList";
-import {categsData, productsData as getProdData,hanleMostSold} from '../assets/data.ts'
+import { CollictionList, ProdList } from "../components/RowList";
+import {collectionsData, productsData as getProdData,hanleMostSold} from '../assets/data.ts'
 import Product from "../components/Product.tsx";
 import productpic from '../assets/4fa25fa19937bca6f8fb422580778ea9.jpg'
 import banner from '../assets/Artboard 3.png'
@@ -16,7 +16,7 @@ const HomePage = () => {
                 {/* <img src={banner} className="min-h-full min-w-full shrink-0" alt="" /> */}
             </div>
             <div>
-                <CategList list={categsData}/>
+                <CollictionList list={collectionsData}/>
             </div>
             
             <div className="">

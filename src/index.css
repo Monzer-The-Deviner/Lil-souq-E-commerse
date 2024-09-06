@@ -17,5 +17,8 @@
   @apply border border-primarly text-primarly
 }
  form input {
-  @apply bg-[#e4f1f0] rounded-md outline-primarly border text-[#3b9177] px-2 py-1 text-sm
+  @apply bg-[#e8eeed] rounded-md outline-primarly border text-[#3b9177] px-2 py-1 text-sm border-none
  }
+.collections div {
+ @apply rounded-lg
+}

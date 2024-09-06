@@ -5,9 +5,9 @@ export type productObj = {
     desc:string,
     imgURL:string[],
     price:number,
-    categ:string,
+    collection:string,
     sold:number
     stock:number,
     stars:number
 }
-export type categObj = {title:string,id:string,bio:string,imgURL:string}
+export type colletionObj = {title:string,id:string,bio:string,imgURL:string}

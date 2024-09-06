@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { categsData, productsData } from "../assets/data";
+import { collectionsData, productsData } from "../assets/data";
 import { Product } from "../components";
 
 const SearchPage = ({searched}:{searched:string}) => {
     const prod = productsData(100)
     const [filterdproducts,setFilterdProducts] = useState(prod)
     
-    const filteSearch = (categSelect:string,rangeSelect:number,searched?:string) => {
+    const filteSearch = (CollictionSelect:string,rangeSelect:number,searched?:string) => {
         let filterdProds = filterdproducts
         //filter search
          if (searched && searched.length>0) {
@@ -14,8 +14,8 @@ const SearchPage = ({searched}:{searched:string}) => {
          }
 
          //filter with prods
-         if (categSelect!='all') {
-            filterdProds =  filterdproducts.filter(p=>p.categ == categSelect)
+         if (CollictionSelect!='all') {
+            filterdProds =  filterdproducts.filter(p=>p.collection == CollictionSelect)
          }
          if (rangeSelect>0) {
             filterdProds =  filterdproducts.filter(p=>p.price <rangeSelect)
@@ -27,9 +27,9 @@ const SearchPage = ({searched}:{searched:string}) => {
     }
     const handlesubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault()
-        setFilterdProducts(filteSearch(categSelect,rangeSelect,searched))
+        setFilterdProducts(filteSearch(CollictionSelect,rangeSelect,searched))
     }
-    const [categSelect,setCategSelect] =  useState('all')
+    const [CollictionSelect,setCollictionSelect] =  useState('all')
     const [rangeSelect, setRangeSelect] =  useState(0)
     return ( 
         <>
@@ -44,12 +44,12 @@ const SearchPage = ({searched}:{searched:string}) => {
                     <button className="pl-2">X</button>
                 </div>}
 
-                    <select value={categSelect} onChange={(e)=>setCategSelect(e.target.value)} className=" outline-none border border-gray-300 px-2 rounded-md text-gray-500">
+                    <select value={CollictionSelect} onChange={(e)=>setCollictionSelect(e.target.value)} className=" outline-none border border-gray-300 px-2 rounded-md text-gray-500">
                         <option value="all">All</option>
-                        {categsData.map(categ=>
+                        {collectionsData.map(Colliction=>
                             
-                            <option className="" key={categ.id}>
-                                {categ.title}
+                            <option className="" key={Colliction.id}>
+                                {Colliction.title}
                             </option>
                         )}
                     </select>

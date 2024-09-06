@@ -1,4 +1,4 @@
-import {productObj,categObj} from '../types'
+import {productObj,colletionObj} from '../types'
 import manpic1 from'./ff00009421652bef9f54af6ab6521df4.jpg'
 import manpic2 from'./0b20f7595d8d044c9437672a2fe05a58.jpg'
 import manpic3 from'./4fa25fa19937bca6f8fb422580778ea9.jpg'
@@ -10,7 +10,7 @@ import womanPic1 from './www.swishschool (41).png'
 export const productsData = (productsNumber:number): productObj[]=>{
     const data : productObj[]= []
     const names = ['nice outfit','k-pop outfit','modren shirt','hoodie']
-    const categs = ['laioutfits','Men cloths','modren acceseries','home stuff']
+    const collections = ['laioutfits','Men cloths','modren acceseries','home stuff']
     const pictures = [ manpic1, manpic2, manpic3, manpic4, manpic5, womanPic1]
     for (let index = 0; index < productsNumber; index++) {
         const price :number= Math.ceil(Math.random()*200)+0.99;
@@ -19,13 +19,13 @@ export const productsData = (productsNumber:number): productObj[]=>{
         const id :string= ''+Math.ceil(Math.random()*2000);
         const stars :number= Math.ceil(Math.random()*5);
         const name :string = names[Math.ceil(Math.random()* names.length-1)]
-        const categ :string = categs[Math.ceil(Math.random()* categs.length-1)]
+        const collection :string = collections[Math.ceil(Math.random()* collections.length-1)]
         const imgURL :string[] = [pictures[Math.ceil(Math.random()* pictures.length-1)]]
         const desc = ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias magni minima, deleniti nam at possimus culpa est magnam, ea dignissimos, quibusdam praesentium nesciunt. Amet enim nulla magni, commodi quos numquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias magni minima, deleniti nam at possimus culpa est magnam, ea dignissimos, quibusdam praesentium nesciunt. Amet enim nulla magni, commodi quos numquam.'
 
         const productobj: productObj = {
             title:name,
-            categ,
+            collection,
             desc,
             imgURL,
             price,
@@ -39,7 +39,7 @@ export const productsData = (productsNumber:number): productObj[]=>{
     return data
 }
 
-export const categsData :categObj[] = [
+export const collectionsData :colletionObj[] = [
 
     {
         title:'Men outfits',
