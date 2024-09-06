@@ -4,7 +4,6 @@ import { getCollections } from "../sanityClient"
 import { filterActions } from "../store/Search_filter"
 import { colletionObj } from "../types"
 import { useEffect, useState } from "react"
-import Collections from "./Collectsions"
 
 const SearchFilter = ({handlesubmit}:{handlesubmit: (e: {preventDefault: () => void;}) => Promise<void>}) => {
     const collection = useSelector((state:RootState)=> state.filter.collection)
@@ -35,7 +34,7 @@ const SearchFilter = ({handlesubmit}:{handlesubmit: (e: {preventDefault: () => v
                         )}
                     </select>
                     <select value={range} onChange={(e)=>dispatch(filterActions.setRange(parseInt(e.target.value,10)))} className=" outline-none border border-gray-300 px-2 rounded-md text-gray-500" >
-                        <option value={0}>All</option>
+                        <option value={10000}>All</option>
                         <option value={50}>from 5 to 10</option>
                         <option value={100}>from 5 to 10</option>
                         <option value={200}>from 10 to 20</option>
