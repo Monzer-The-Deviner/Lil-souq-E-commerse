@@ -7,8 +7,8 @@ const ProdList = ({list,title}:{list:productObj[],title?:string}) => {
         <>
             <h3 className="text-lg font-semibold">{title}</h3>
             <div className="flex gap-4 overflow-x-hidden hover:overflow-x-scroll duration-100">
-                {list.map((item,index)=>
-                <Link to='/product' key={index}>
+                {list.map((item)=>
+                <Link to={`/product/${item.id}`} key={item.id}>
                     <div className="bg-white shadow-md mb-2 p-1  rounded-md overflow-hidden flex flex-col shrink-0 min-h-64 w-60">
                         <div className=" h-40 rounded-md bg-cover bg-center overflow-hidden " style={{backgroundImage:`url(${urlFor(item.image)})`}}>    
                         </div >
@@ -17,7 +17,7 @@ const ProdList = ({list,title}:{list:productObj[],title?:string}) => {
                          <span className="font-semibold">{item.title}</span>
                          <span className="font-semibold">${item.price}</span>
                         </div>
-                        
+
                         <span className="text-sm text-teal-950">{item.desc && item.desc.substring(0,70)}...</span>
                     </div>
                 </Link>

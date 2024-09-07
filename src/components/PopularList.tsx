@@ -18,7 +18,7 @@ const PopularList = () => {
                 <h2 className="text-2xl font-sans font-bold my-12 ">Our <span className="text-primarly">Popular</span> products</h2>
                 <div className="flex mt-8 justify-center flex-wrap sm:flex-row gap-2 md:gap-8">
                     {products.map((product:productObj,index:number)=>
-                    <Link to='/product' key={index} onClick={()=>dispatch(setProductId(product.id))}>
+                    <Link to={`/product/${product?.id}`} key={index} onClick={()=>dispatch(setProductId(product.id))}>
 
                         <div className="bg-white shadow-md hover:scale-110 duration-150 rounded-md w-40 md:w-60 p-1 gap-1 flex flex-col">
                             <div className=" rounded-md h-40 bg-cover" style={{backgroundImage:`url(${urlFor(product.image)})`}}>

@@ -10,7 +10,7 @@ const Collection = ({ backgroundColor,textColor,img,header,bio,bg}:{backgroundCo
                 <button className='btn text-lg font-semibold self-end bg-white mt-6'>Checkout</button>
             </div>
             
-                {img&&<img src={img} className='aspect-square w-72 self-end' alt="" />}
+                {img&&<img src={urlFor(img)} className='aspect-square w-72 self-end' alt="" />}
             
         </div>
      );
@@ -29,42 +29,43 @@ const Collections = () => {
             <Collection
                     textColor='text-white'
                     backgroundColor='bg-red-500'
-                    img={urlFor(cols[0].image)}
-                    bio={cols[0].bio}
-                    header={cols[0].title}
+                    img={cols[0]?.image}
+                    bio={cols[0]?.bio}
+                    header={cols[0]?.title}
                     />
                 <div className="flex-1 gap-2 flex">
                     <Collection
                     textColor='text-white'
                     backgroundColor='bg-red-500'
-                    bg={urlFor(cols[1].image)}
-                    bio={cols[1].bio}
-                    header={cols[1].title}
+                    // bg={urlFor(cols[1]?.image)}
+                    bio={cols[1]?.bio}
+                    header={cols[1]?.title}
                     />
 
                     <Collection
                     textColor='text-white'
                     backgroundColor='bg-blue-600'
-                    bg={urlFor(cols[2].image)}
-                    bio={cols[2].bio}
-                    header={cols[2].title}
+                    // bg={urlFor(cols[2]?.image)}
+                    bio={cols[2]?.bio}
+                    header={cols[2]?.title}
                     />
                 </div>
             </div>
             <div className="flex-1 flex flex-col gap-4">
+                
                 <Collection
                  textColor='text-white'
                  backgroundColor='bg-orange-400'
-                 img={urlFor(cols[3].image)}
-                 bio={cols[3].bio}
-                 header={cols[3].title} 
+                //  img={urlFor(cols[3]?.image)}
+                 bio={cols[3]?.bio}
+                 header={cols[3]?.title} 
                  />
                 <Collection
                  textColor='text-white'
                  backgroundColor='bg-emerald-600'
-                 img={urlFor(cols[4].image)}
-                 bio={cols[4].bio}
-                 header={cols[4].title}
+                //  img={urlFor(cols[4]?.image)}
+                 bio={cols[4]?.bio}
+                 header={cols[4]?.title}
                  />
             </div>
         </div>

@@ -23,7 +23,7 @@ function App() {
 
           <Routes>
             <Route path='/' element = {<MainPage />} />
-            <Route path='/product' element = {<ProductPage />} />
+            <Route path='/product/:id/*' element = {<ProductPage />} />
             <Route path='/auth' element = {<AuthPage />} />
             <Route path='/search' element = {<SearchPage  />} />
             <Route path='*' element = {<NotFound />} />

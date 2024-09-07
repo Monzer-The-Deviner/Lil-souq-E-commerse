@@ -10,14 +10,14 @@ export const client = createClient({
 
 
 
-export const getProduct = async (id:string|null)=> {
-  const query = `*[_type == "product" && _id == ${id}]{
+export const getProduct = async (id:string | undefined)=> {
+  const query = `*[_type == "product" && id.current match '*${id}*' ]{
     title,
-    id,
+    "id":id.current,
     desc,
     images,
     price,
-    "collection": collection->title,
+    "collection": collection->id,
     sold,
     stock,
     stars
@@ -29,7 +29,7 @@ export const getProduct = async (id:string|null)=> {
 export const getTopSoldProducts = async ()=> {
   const query = `*[_type == "product"] | order(sold desc)[0...5]{
     title,
-    id,
+    "id":id.current,
     "image": images[0],
     price,
     desc,
@@ -43,7 +43,7 @@ export const getProdsFromCollection = async(collectionId:string) => {
   //add this collection param to the query
   const query = `*[_type == "product" && collection->id == "${collectionId}"]{
     title,
-    id,
+    "id":id.current,
     "image": images[0],
     price,
     desc,

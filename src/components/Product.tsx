@@ -1,5 +1,4 @@
 import { urlFor } from "../sanityClient";
-
 const Product = ({title,price,disc,url}:{title:string,price:number,disc:string,url:string}) => {
     return ( 
         <div className="bg-white rounded-md flex flex-col md:flex-row overflow-hidden w-full h-fit md:h-64">
