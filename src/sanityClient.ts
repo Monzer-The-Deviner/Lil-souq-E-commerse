@@ -57,8 +57,10 @@ export const getProdsFromCollection = async(collectionId:string) => {
 }
 
 
-export const getCollections = async () => {
-    const query = `*[_type == "collection"]{
+export const getCollections = async (id?:string) => {
+    const idFilter = id? `&& id match '*${id}*'`:''
+
+    const query = `*[_type == "collection" ${idFilter}]{
       title,
       id,
       bio,
