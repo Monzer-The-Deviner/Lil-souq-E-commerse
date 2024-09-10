@@ -1,4 +1,4 @@
-import {Header,Footer} from './components'
+import {Header,Footer, CartSide} from './components'
 import { SearchPage, ProductPage ,NotFound,MainPage,CollectionPage } from './pages'
 import { linkObj } from './types'
 import AuthPage from './pages/AuthPage'
@@ -19,6 +19,7 @@ function App() {
   return (
     <Router>
         <div className='min-h-screen flex flex-col bg-fill'>
+        <CartSide />
         <Header links={links}/><br />
         
         <main className='my-8 flex-1 flex flex-col gap-4 self-center px-2 w-full max-w-5xl'>

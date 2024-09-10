@@ -8,5 +8,6 @@ import AuthForm from "./Authform.tsx";
 import PopularList from "./PopularList.tsx";
 import Collections from "./Collectsions.tsx";
 import CTA from "./CTA.tsx";
+import CartSide from "./cartSide.tsx";
 
-export{Header,Hero,HighLighted,CollictionList,ProdList,Product,Footer,AuthForm,PopularList,Collections,CTA}
+export{Header,Hero,HighLighted,CollictionList,ProdList,Product,Footer,AuthForm,PopularList,Collections,CTA,CartSide}

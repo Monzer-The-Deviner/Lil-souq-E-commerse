@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
 import { urlFor } from "../sanityClient";
-const Product = ({title,price,disc,url}:{title:string,price:number,disc:string,url:string}) => {
+import { addItemToCart } from "../store/cart-slice";
+const Product = ({title,price,disc,url,id}:{id:string,title:string,price:number,disc:string,url:string}) => {
+    const dispatch = useDispatch()
     return ( 
         <div className="bg-white rounded-md flex flex-col md:flex-row overflow-hidden w-full h-fit md:h-64">
             <div className="bg-gray-400 max-h-64 overflow-hidden flex items-center justify-center flex-1 ">
@@ -15,7 +18,7 @@ const Product = ({title,price,disc,url}:{title:string,price:number,disc:string,u
                     </div>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-x-4 gap-y-1">
                     <button className="btn primarly">Buy</button>
-                    <button className="btn seconary">Add to card</button>
+                    <button onClick={()=>dispatch(addItemToCart({id:id,name:title,price,quantity:1}))} className="btn seconary">Add to card</button>
                     </div>
                 </div>
                     <h3 className="text-lg text-primarly font-semibold">Discription</h3>

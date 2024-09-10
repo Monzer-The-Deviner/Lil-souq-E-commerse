@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import Cuantity from "../components/Cuantity";
+import Quantity from "../components/Cuantity";
 import { ProdList } from "../components";
 import { FaStar } from "react-icons/fa";
-import { getCollections, getProdsFromCollection, getProduct, urlFor } from "../sanityClient";
+import { getCollections, getProduct, urlFor } from "../sanityClient";
 import { useParams } from "react-router-dom";
 import { productObj } from "../types";
-import { productsData } from "../assets/data";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../store/cart-slice";
 
 const ProductPage = () => {
     const [simularprods, setSimularprods] = useState([]);
     const [imageIndex, setImageIndex] = useState(0);
+    const [quantity, setQuantity] = useState(0);
     const { id } = useParams()
-
+    const dispatch = useDispatch()
     const [product, setProduct] = useState<productObj>();
     const [collections, setCollections] = useState([]);
     const collection = collections.find(item=>item.id == product?.collection)
@@ -52,8 +54,15 @@ const ProductPage = () => {
                     <h3 className="text-lg text-primarly font-semibold">Discription</h3>
                     <p className="text-sm">{product?.desc}</p>
                     <div className="flex gap-3">
-                    <Cuantity />
-                    <button className="btn primarly">Add to card</button>
+                    <Quantity quantity={quantity} setQuantity={setQuantity} />
+                    <button 
+                    onClick={()=>dispatch(addItemToCart({
+                        id:id||'',
+                        name:product?.title||'',
+                        price:product?.price||0,
+                        quantity:1
+                    }))}
+                    className="btn primarly">Add to card</button>
                     </div>
                 </div>            
         </div>
