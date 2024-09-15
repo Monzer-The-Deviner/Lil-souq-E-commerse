@@ -27,6 +27,7 @@ const CollectionPage = () => {
             </div>
             {prods?.map((product:productObj)=>
                 <Product 
+                id={product.id}
                 disc={product.desc} 
                 price={product.price } 
                 title={product.title} 

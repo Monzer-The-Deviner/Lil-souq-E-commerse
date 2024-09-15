@@ -3,11 +3,12 @@ import profile from '../assets/Artboard 6.png'
 import { RootState } from '../store'
 import { hideCart } from '../store/cart-slice'
 import { AiOutlineClose } from 'react-icons/ai'
+import Quantity from './Quantity'
 
 const CartSide = () => {
     const cartItems = useSelector((state:RootState)=>state.cart.items)
     const visible = useSelector((state:RootState)=>state.cart.visible)
-    const email = 'hahamonxer@gmail.com'
+    const user = useSelector((state:RootState)=>state.auth.user)
     const dispatch = useDispatch()
     console.log(cartItems);
     
@@ -18,8 +19,8 @@ const CartSide = () => {
                 <div className='flex gap-2 items-center'>
                     <img src={profile} className="w-8 bg-slate-200 rounded-full aspect-square" />
                     <div>
-                        <h4>name</h4>
-                        <p className='text-xs'>{email}</p>
+                        <h4>{user?.displayName}</h4>
+                        <p className='text-xs'>{user?.email}</p>
                     </div>
                 </div>
                 <button 
@@ -28,7 +29,20 @@ const CartSide = () => {
                 </button>
             </div>
         </div>
-        {cartItems.map((item,index)=><div key={index} >{item.name}</div>)}
+        <div>
+            <h3 className='text-xl mt-6 mb-2'>Cart items</h3>
+            {cartItems.map((item)=>
+                <div key={item.id} className='flex items-end gap-2 border-b py-1'>
+                    <div className="flex-1 p-2">
+                        <h4 className='font-medium'>{item.name}</h4>
+                        <h6 className='text-sm'>total price: <span className='text-green-500'>$ {item.price * item.quantity}</span></h6>
+                    </div>
+                        <Quantity quantity={item.quantity} id={item.id} />
+
+                </div>
+            )}
+        </div>
+            
     </div>
   )
 }

@@ -18,7 +18,7 @@ const Product = ({title,price,disc,url,id}:{id:string,title:string,price:number,
                     </div>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-x-4 gap-y-1">
                     <button className="btn primarly">Buy</button>
-                    <button onClick={()=>dispatch(addItemToCart({id:id,name:title,price,quantity:1}))} className="btn seconary">Add to card</button>
+                    <button onClick={()=>dispatch(addItemToCart({id,name:title,price,quantity:1}))} className="btn seconary">Add to card</button>
                     </div>
                 </div>
                     <h3 className="text-lg text-primarly font-semibold">Discription</h3>

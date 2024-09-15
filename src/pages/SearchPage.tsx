@@ -41,7 +41,7 @@ const SearchPage = () => {
         <>
             <div className="flex flex-col gap-4" >
                 <SearchFilter handlesubmit={handlesubmit} />
-                {filterdProds && filterdProds.map(prod => <Product disc={prod.desc} title={prod.title} price={prod.price} url={prod.image} key={prod.id}/>)}
+                {filterdProds && filterdProds.map(prod => <Product id={prod.id} disc={prod.desc} title={prod.title} price={prod.price} url={prod.image} key={prod.id}/>)}
             </div>
         </>
      );

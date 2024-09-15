@@ -55,6 +55,22 @@ export const getProdsFromCollection = async(collectionId:string) => {
   const products = await client.fetch(query);
   return products;
 }
+export const getTopProdsFromCollection = async(collectionId:string) => {
+  //add this collection param to the query
+  const query = `*[_type == "product" && collection->id == "${collectionId}" | order(sold desc)[0...5]]{
+    title,
+    "id":id.current,
+    "image": images[0],
+    price,
+    desc,
+    sold,
+    stock,
+    stars
+  }`;
+
+  const products = await client.fetch(query);
+  return products;
+}
 
 
 export const getCollections = async (id?:string) => {
@@ -69,6 +85,31 @@ export const getCollections = async (id?:string) => {
   
     const collections = await client.fetch(query);
     return collections;
+  }
+export const getAboutSections = async () => {
+    const query = `*[_type == "about"]{
+      title,
+      id,
+      text,
+      image
+    }`;
+  
+    const about = await client.fetch(query);
+    return about;
+  }
+export const getTeam = async () => {
+
+
+    const query = `*[_type == "team" ]{
+      name,
+      id,
+      quote,
+      image,
+      role
+    }`;
+  
+    const about = await client.fetch(query);
+    return about;
   }
 
   

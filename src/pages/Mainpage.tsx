@@ -4,10 +4,10 @@ import HomePage from "./HomePage";
 import LandingPage from "./LandingPage";
 
 const MainPage = () => {
-    const isLoggedIn= useSelector((state:RootState)=>state.auth.isLoggedIn)
+    const user= useSelector((state:RootState)=>state.auth.user)
     return ( 
         <>
-            {isLoggedIn ?
+            {user ?
                 <HomePage />
                 :
                 <LandingPage />

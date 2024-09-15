@@ -4,8 +4,8 @@ import { urlFor } from "../sanityClient";
 
 const ProdList = ({list,title}:{list:productObj[],title?:string}) => {
     return ( 
-        <>
-            <h3 className="text-lg font-semibold">{title}</h3>
+        <div>
+            <h3 className="text-2xl font-semibold">{title}</h3>
             <div className="flex gap-4 overflow-x-hidden hover:overflow-x-scroll duration-100">
                 {list.map((item)=>
                 <Link to={`/product/${item.id}`} key={item.id}>
@@ -23,7 +23,7 @@ const ProdList = ({list,title}:{list:productObj[],title?:string}) => {
                 </Link>
                 )}
             </div>
-        </>
+        </div>
         
      );
 }

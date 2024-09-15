@@ -4,21 +4,13 @@ import { linkObj } from '../types';
 import Search from './Search';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { authActions } from '../store/auth-slice';
 import { AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai';
 import { RootState } from '../store';
 import { showCart } from '../store/cart-slice';
+
 const Header = ({links}:{links:linkObj[]}) => {
     const [visible ,setvisible] = useState(false)
-    const isloggedIn = useSelector((state:RootState)=>state.auth.isLoggedIn)
-    const dispatch = useDispatch()
-
-    const handlejoin = ()=>{
-        dispatch(authActions.logout())
-    }
-    const handleLogin = ()=>{
-        dispatch(authActions.login())
-    }
+    const isloggedIn = useSelector((state:RootState)=>state.auth.user)
     return ( 
         <header className={"flex fixed w-full justify-center p-1 z-10 h-10 shadow-md bg-primarly px-4 "}>
             
@@ -35,8 +27,8 @@ const Header = ({links}:{links:linkObj[]}) => {
                 <div className='flex gap-2'>
                     {!isloggedIn?
                     <>
-                        <button onClick={handlejoin} className='btn bg-white text-dark'>Join</button>
-                        <button onClick={handleLogin} className='border border-white text-white btn'>Login</button>
+                        <Link to={'/auth'} className='btn bg-white text-dark'>Join</Link >
+                        <Link to={'/auth'} className='border border-white text-white btn'>Login</Link >
                     </>:
                         <ShoppingIcon />
                     }
