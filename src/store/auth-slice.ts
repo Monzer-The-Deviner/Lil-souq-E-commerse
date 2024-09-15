@@ -6,7 +6,7 @@ import { auth, googleProvider, facebookProvider, githubProvider } from '../fireb
 import photoURL from '../assets/Artboard 3.png'
 // Define the Auth State interface
 interface AuthState {
-  user: User | null;
+  user: any | null;
   loading: boolean;
   error: string | null;
 }
@@ -73,12 +73,40 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     quikAuth(state){
-        state.user = {
-            displayName:'John the guest',
-            email:'test@gmail.com',
-            photoURL,
-
-        }
+        state.user =   {
+          uid: "12345",
+          displayName: "John Doe",
+          email: "johndoe@example.com",
+          photoURL: photoURL,
+          emailVerified: true,
+          isAnonymous: false,
+          phoneNumber: "+1234567890",
+          metadata: {
+            lastSignInTime: "2024-09-15T10:45:00Z",
+            creationTime: "2023-01-10T12:30:00Z",
+            
+          },
+          providerData: [
+            {
+              providerId: "google.com",
+              uid: "987654321",
+              displayName: "John Doe",
+              email: "johndoe@example.com",
+              photoURL: "https://example.com/johndoe.jpg",
+              phoneNumber: "+1234567890",
+            },
+            {
+              providerId: "facebook.com",
+              uid: "654321987",
+              displayName: "John Doe",
+              email: null, // optional
+              photoURL: null, // optional
+              phoneNumber: null, // optional
+            },
+          ],
+          tenantId: null, // optional
+          refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", // Optional token for re-authentication
+        };
     }
   },
   extraReducers: (builder) => {

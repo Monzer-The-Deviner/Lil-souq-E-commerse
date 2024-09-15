@@ -16,7 +16,7 @@ const LandingPage = () => {
             <CTA
              bg = 'bg-primarly'
              title="find every thing u need"
-             url = '#' 
+             url = '/products' 
              image ={bagimage} 
              desc = {description} />
             <PopularList /> 
@@ -35,7 +35,7 @@ const LandingPage = () => {
             <CTA
              bg = 'bg-red-400'
              title="find every thing u need"
-             url = '#' 
+             url = '/products' 
              image ={bagimage1} 
              desc = {description} />
 
