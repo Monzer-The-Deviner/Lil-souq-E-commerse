@@ -22,3 +22,21 @@ p{
 .collections div {
  @apply rounded-lg
 }
+
+.img-container{
+  animation-name: floating  ;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floating {
+  0%{
+    translate:0 -16px;
+  }
+  50%{
+    translate:0 16px ;
+  }
+  100%{
+    translate: 0 -16px;
+  }
+}
