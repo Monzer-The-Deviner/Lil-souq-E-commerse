@@ -12,7 +12,7 @@ const AuthForm = () => {
     return ( 
         <form className='flex gap-6 flex-col w-72 p-8 bg-white'>
 
-                <Link to="/" onClick={()=>dispatch(quikAuth())} className='text-sm mb-4 text-primarly'>just taking a look? </Link>
+                <Link to="/" onClick={()=>dispatch(quikAuth())} className=' mb-4 text-primarly'>Continue as a guest? </Link>
                 <h1 className='text-primarly text-3xl'>{greeting}</h1>
                 <div className='flex flex-col gap-2'>
                  {!member && <><label  htmlFor="user-name">Username</label> <input placeholder='add username' type="text" id='user-name' /></>}

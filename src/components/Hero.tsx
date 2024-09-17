@@ -1,16 +1,18 @@
-import banner from '../assets/tempbanner.jpg'
-import Container from './Container';
+import banner from '../assets/Untitled-1.svg'
+import Container from './container';
 import image from '../assets/accessories.jpg'
+import image2 from '../assets/shose.jpg'
+import image3 from '../assets/2circle necklesses.jpg'
 import heroimage from '../assets/hero section pic.png'
 import { Link } from 'react-router-dom';
 
 const Home = () => {
     return ( 
         <>
-            <div className="flex pt-16 px-8 h-fit gap-16 overflow-hidden items-center lg:items-start  flex-col lg:flex-row rounded-md bg-cover" style={{backgroundImage:`url(${banner})`}}>
+            <div className="flex pt-16 px-8 h-fit min-h-96 gap-16 overflow-hidden items-center lg:items-start  flex-col lg:flex-row rounded-xl bg-cover bg-center lg:bg-top" style={{backgroundImage:`url(${banner})`}}>
                 <div className='flex flex-1 items-center lg:items-start'> 
-                    <div className='flex flex-col'>
-                         <h1 className='text-5xl lg:text-start text-center font-semibold text-white mb-8'>Welcome to Lil Souq</h1>
+                    <div className='flex flex-col lg:pl-2'>
+                         <h1 className='text-5xl  lg:text-start text-center font-semibold text-white mb-8'>Welcome to <span className='rounded-md '>LilSouq</span></h1>
                          <h5 className='text-2xl font-simibold text-center lg:text-start text-white'>International products with made with <span className='text-primarly'>100%</span> sudanese hands</h5>
                             
                         <Link to={'/products'} className='btn text-xl  font-semibold text-primarly mt-16 self-center lg:self-start bg-white w-fit' >
@@ -24,11 +26,11 @@ const Home = () => {
                     right='left-4 scale-90' 
                     z='' 
                     duration='3s' delay='300ms' 
-                    image={image} />
-                    <img src={heroimage} alt="" className='flex-1 z-[1]  -translate-x-10' />
+                    image={image2} />
+                    <img src={heroimage} alt="" className='flex-1 z-[1]  -translate-x-14' />
                     <Container 
-                    top='-top-8 scale-110' 
-                    right='right-4 ' 
+                    top='-top-10 scale-110' 
+                    right='lg:-right-2 right-6 ' 
                     duration='3s' 
                     delay='0s' 
                     z='z-[2]' 
@@ -39,7 +41,7 @@ const Home = () => {
                     duration='3s' 
                     delay='600ms' 
                     z='z-[2]' 
-                    image={image}  />
+                    image={image3}  />
                 </div>
             </div>
         </>

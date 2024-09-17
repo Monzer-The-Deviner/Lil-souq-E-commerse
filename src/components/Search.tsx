@@ -8,14 +8,14 @@ const Search = () => {
     const dispatch = useDispatch()
     const searched = useSelector((state:RootState)=>state.filter.title)
     return ( 
-        <div className="bg-white flex overflow-hidden  rounded-md">
+        <div className="bg-white flex overflow-hidden rounded-md">
             <input 
             type="text"
             className="bg-transparent text-dark btn outline-none"
             onChange={(e)=>dispatch(filterActions.setTitle(e.target.value))}
             value={searched}
             />
-            <Link to={'./search'} className="btn flex items-center justify-center primarly "> <AiOutlineSearch size={20} /> </Link>
+            <Link to={'./search'} className="btn flex items-center border-white border justify-center primarly "> <AiOutlineSearch size={20} /> </Link>
         </div>
      );
 }

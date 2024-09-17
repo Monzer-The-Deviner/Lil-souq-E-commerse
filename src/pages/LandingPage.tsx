@@ -39,8 +39,8 @@ const LandingPage = () => {
              image ={bagimage1} 
              desc = {description} />
 
-            <div className="flex translate-y-4 items-start  mt-8">
-              <div className="flex-1"><img src={illustration} alt="" /></div>
+            <div className="flex translate-y-4 items-start justify-center mt-8">
+              <div className="flex-1 lg:visible invisible"><img src={illustration} alt="" /></div>
               <div className="rounded-md shadow-lg overflow-hidden">
                 <AuthForm />
               </div>
