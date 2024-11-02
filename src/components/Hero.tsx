@@ -1,5 +1,5 @@
 import banner from '../assets/Untitled-1.svg'
-import Container from './container';
+import Container from './Container';
 import image from '../assets/accessories.jpg'
 import image2 from '../assets/shose.jpg'
 import image3 from '../assets/2circle necklesses.jpg'
