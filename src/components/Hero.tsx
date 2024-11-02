@@ -1,10 +1,11 @@
 import banner from '../assets/Untitled-1.svg'
-import Container from './Container';
+import ImageContainer from './ImageContainer'
 import image from '../assets/accessories.jpg'
 import image2 from '../assets/shose.jpg'
 import image3 from '../assets/2circle necklesses.jpg'
 import heroimage from '../assets/hero section pic.png'
 import { Link } from 'react-router-dom';
+
 
 const Home = () => {
     return ( 
@@ -21,21 +22,21 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='flex relative justify-center items-center size-96 '>
-                    <Container 
+                    <ImageContainer 
                     top='top-20' 
                     right='left-4 scale-90' 
                     z='' 
                     duration='3s' delay='300ms' 
                     image={image2} />
                     <img src={heroimage} alt="" className='flex-1 z-[1]  -translate-x-14' />
-                    <Container 
+                    <ImageContainer 
                     top='-top-10 scale-110' 
                     right='lg:-right-2 right-6 ' 
                     duration='3s' 
                     delay='0s' 
                     z='z-[2]' 
                     image={image}  />
-                    <Container 
+                    <ImageContainer 
                     top='bottom-10' 
                     right='right-0  ' 
                     duration='3s' 
